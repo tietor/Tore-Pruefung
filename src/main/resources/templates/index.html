@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Türspel</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="p-4">
+    <h1>Welches ist die richtige Tür?</h1>
+    <img src="/img/tuer1.jpg" alt="Tuer 1 Bild" style="width: 30%">
+    <img src="/img/tuer2.jpg" alt="Tuer 2 Bild" style="width: 30%">
+    <img src="/img/tuer3.jpg" alt="Tuer 3 Bild" style="width: 30%">
+    <form action="#" th:action="@{/tuerspiel}" th:object="${tuer}" method="post">
+        <div class="form-group">
+            <label>Tür:</label>
+            <input type="text" class="form-control" placeholder="Tür eingeben" th:field="*{input}">
+        </div>
+        <button type="submit" class="btn btn-success">Check</button>
+    </form>
+    <div class="form-group">
+        <label>Ausgabe:</label>
+        <input type="text" class="form-control" readonly placeholder="Ausgabe" th:value="${tuer.response}">
+    </div>
+</div>
+<footer>
+    <small>© 2019 / Autor: Fabio Torti</small>
+</footer>
+</body>
+</html>
